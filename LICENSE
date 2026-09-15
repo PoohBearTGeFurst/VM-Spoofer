@@ -1,6 +1,8 @@
+# License
+
 MIT License
 
-Copyright (c) 2026 PoohBearTGeFurst
+Copyright (c) 2026 VM-Spoofer Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +21,49 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## DISCLAIMER
+
+This software is provided for educational and authorized security research
+purposes only. The authors assume no liability for:
+
+1. **Unauthorized Use**: Using this tool against systems without explicit
+   permission is illegal and violates computer fraud laws in most jurisdictions.
+
+2. **System Damage**: This tool injects code into processes. While designed
+   carefully, it may cause unexpected behavior or system instability.
+
+3. **Data Loss**: Keep backups. The authors are not responsible for any data
+   loss or corruption resulting from use of this tool.
+
+4. **Malware Execution**: Running actual malware is dangerous. Always use
+   proper isolation and containment (VM, air-gapped network, etc.).
+
+5. **Legal Issues**: Analyzing malware without authorization may violate
+   local laws. Consult legal counsel before proceeding.
+
+## Use Responsibly
+
+✅ **Authorized Uses**
+- Analyzing malware on systems you own
+- Security research with permission
+- Authorized penetration testing
+- Educational purposes in controlled labs
+- Internal security testing
+
+❌ **Unauthorized Uses**
+- Testing against systems you don't own
+- Bypassing security controls illegally
+- Analyzing malware without authorization
+- Commercial use without permission
+- Any illegal activity
+
+---
+
+By using this software, you acknowledge that:
+1. You understand the risks
+2. You have authorization for your intended use
+3. You assume all liability for your actions
+4. You will comply with all applicable laws
