@@ -1,0 +1,14 @@
+{
+  "spoofProfile": "Generic",
+  "enabledModules": ["Registry", "FileSystem", "Process"],
+  "fakeManufacturer": "Dell Inc.",
+  "fakeModel": "OptiPlex 7090",
+  "fakeSerialNumber": "ABC123XYZ",
+  "fakeBiosManufacturer": "American Megatrends Inc.",
+  "fakeBiosVersion": "2.3.0",
+  "fakeComputerName": "DESKTOP-USER",
+  "fakeProcessorName": "Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz",
+  "fakeTotalMemoryMB": 16384,
+  "fakeMacAddress": "00:11:22:33:44:55",
+  "enableNetworkSpoof": false
+}

@@ -1,0 +1,14 @@
+{
+  "spoofProfile": "VirtualBox",
+  "enabledModules": ["Registry", "FileSystem", "Process", "WMI"],
+  "fakeManufacturer": "Lenovo",
+  "fakeModel": "ThinkCentre M90",
+  "fakeSerialNumber": "LENOVO123456",
+  "fakeBiosManufacturer": "Phoenix Technologies LTD",
+  "fakeBiosVersion": "BHBL13WW",
+  "fakeComputerName": "DESKTOP-LENOVO",
+  "fakeProcessorName": "Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz",
+  "fakeTotalMemoryMB": 16384,
+  "fakeMacAddress": "08:00:27:12:34:56",
+  "enableNetworkSpoof": false
+}

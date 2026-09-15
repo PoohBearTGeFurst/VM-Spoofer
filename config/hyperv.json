@@ -1,0 +1,14 @@
+{
+  "spoofProfile": "Hyper-V",
+  "enabledModules": ["Registry", "FileSystem", "Process", "WMI"],
+  "fakeManufacturer": "HP",
+  "fakeModel": "ProDesk 400 G6",
+  "fakeSerialNumber": "HP987654",
+  "fakeBiosManufacturer": "American Megatrends Inc.",
+  "fakeBiosVersion": "U32",
+  "fakeComputerName": "DESKTOP-HP",
+  "fakeProcessorName": "Intel(R) Core(TM) i5-9500 CPU @ 3.00GHz",
+  "fakeTotalMemoryMB": 8192,
+  "fakeMacAddress": "00:15:5D:12:34:56",
+  "enableNetworkSpoof": false
+}

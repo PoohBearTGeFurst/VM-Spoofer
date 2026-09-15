@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VM Spoofer Configuration",
+  "description": "Configuration file for VM-Spoofer spoofing behavior",
+  "type": "object",
+  "properties": {
+    "spoofProfile": {
+      "type": "string",
+      "description": "Name of the spoof profile",
+      "default": "Generic"
+    },
+    "enabledModules": {
+      "type": "array",
+      "description": "Array of enabled spoof modules",
+      "items": {
+        "type": "string",
+        "enum": ["Registry", "FileSystem", "Process", "WMI", "Network"]
+      },
+      "default": ["Registry", "FileSystem", "Process", "WMI"]
+    },
+    "fakeManufacturer": {
+      "type": "string",
+      "description": "Fake computer manufacturer",
+      "default": "Dell Inc."
+    },
+    "fakeModel": {
+      "type": "string",
+      "description": "Fake computer model",
+      "default": "OptiPlex 7090"
+    },
+    "fakeSerialNumber": {
+      "type": "string",
+      "description": "Fake system serial number",
+      "default": "A1B2C3D4E5F6"
+    },
+    "fakeBiosManufacturer": {
+      "type": "string",
+      "description": "Fake BIOS manufacturer",
+      "default": "American Megatrends Inc."
+    },
+    "fakeBiosVersion": {
+      "type": "string",
+      "description": "Fake BIOS version",
+      "default": "2.3.0"
+    },
+    "fakeComputerName": {
+      "type": "string",
+      "description": "Fake computer name",
+      "default": "DESKTOP-USER"
+    },
+    "fakeProcessorName": {
+      "type": "string",
+      "description": "Fake processor name",
+      "default": "Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz"
+    },
+    "fakeTotalMemoryMB": {
+      "type": "integer",
+      "description": "Fake total physical memory in MB",
+      "default": 16384,
+      "minimum": 512,
+      "maximum": 262144
+    },
+    "fakeMacAddress": {
+      "type": "string",
+      "description": "Fake MAC address (format: XX:XX:XX:XX:XX:XX)",
+      "default": "00:11:22:33:44:55",
+      "pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
+    },
+    "enableNetworkSpoof": {
+      "type": "boolean",
+      "description": "Enable network adapter spoofing (may affect connectivity)",
+      "default": false
+    }
+  },
+  "required": ["spoofProfile"],
+  "additionalProperties": false
+}
