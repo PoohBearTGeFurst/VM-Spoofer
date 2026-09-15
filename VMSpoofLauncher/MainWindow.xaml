@@ -1,0 +1,110 @@
+<Window x:Class="VMSpoofLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="VM Spoofer" Height="600" Width="700"
+        Background="#F5F5F5"
+        WindowStartupLocation="CenterScreen"
+        Icon="pack://application:,,,/Resources/icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Background="#2C3E50" Padding="20">
+            <TextBlock Text="VM Spoofer" FontSize="28" FontWeight="Bold" Foreground="White"/>
+            <TextBlock Text="Trick legacy malware into thinking you're on bare metal" FontSize="12" Foreground="#BDC3C7" Margin="0,5,0,0"/>
+        </StackPanel>
+
+        <!-- Main Content -->
+        <ScrollViewer Grid.Row="1" Padding="20">
+            <StackPanel Spacing="20">
+                <!-- Process Selection -->
+                <GroupBox Header="Target Process" Foreground="#2C3E50" BorderBrush="#BDC3C7" BorderThickness="1">
+                    <StackPanel Padding="10" Spacing="10">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <ComboBox ItemsSource="{Binding ProcessList}" 
+                                    SelectedIndex="{Binding SelectedProcessIndex}"
+                                    DisplayMemberPath="DisplayName"
+                                    Height="35"
+                                    VerticalContentAlignment="Center"
+                                    Padding="8"
+                                    Foreground="#2C3E50"
+                                    Background="White"
+                                    MinWidth="400"/>
+                            <Button Content="Refresh" Click="RefreshButton_Click"
+                                   Background="#3498DB" Foreground="White"
+                                   Padding="15,8" FontWeight="Bold"
+                                   Height="35" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Spoof Modules -->
+                <GroupBox Header="Spoof Modules" Foreground="#2C3E50" BorderBrush="#BDC3C7" BorderThickness="1">
+                    <StackPanel Padding="15" Spacing="12">
+                        <CheckBox Content="Registry Spoofing" IsChecked="{Binding RegistryModuleEnabled}"
+                                 Foreground="#2C3E50" FontSize="12" Padding="5"/>
+                        <TextBlock Text="Spoof registry queries for VM indicators (manufacturers, device info)" 
+                                  Foreground="#7F8C8D" FontSize="10" Margin="25,0,0,8"/>
+
+                        <CheckBox Content="File System Spoofing" IsChecked="{Binding FileSystemModuleEnabled}"
+                                 Foreground="#2C3E50" FontSize="12" Padding="5"/>
+                        <TextBlock Text="Hide VM installation directories (VMware, VirtualBox, etc.)" 
+                                  Foreground="#7F8C8D" FontSize="10" Margin="25,0,0,8"/>
+
+                        <CheckBox Content="Process Spoofing" IsChecked="{Binding ProcessModuleEnabled}"
+                                 Foreground="#2C3E50" FontSize="12" Padding="5"/>
+                        <TextBlock Text="Hide VM service processes from process enumeration" 
+                                  Foreground="#7F8C8D" FontSize="10" Margin="25,0,0,8"/>
+
+                        <CheckBox Content="WMI Spoofing" IsChecked="{Binding WmiModuleEnabled}"
+                                 Foreground="#2C3E50" FontSize="12" Padding="5"/>
+                        <TextBlock Text="Spoof WMI queries for system hardware and BIOS information" 
+                                  Foreground="#7F8C8D" FontSize="10" Margin="25,0,0,8"/>
+
+                        <CheckBox Content="Network Spoofing (Optional)" IsChecked="{Binding NetworkModuleEnabled}"
+                                 Foreground="#2C3E50" FontSize="12" Padding="5"/>
+                        <TextBlock Text="Spoof MAC address and network adapter information (may affect browsing)" 
+                                  Foreground="#E74C3C" FontSize="10" Margin="25,0,0,0"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Info Box -->
+                <GroupBox Header="How It Works" Foreground="#2C3E50" BorderBrush="#BDC3C7" BorderThickness="1">
+                    <TextBlock Padding="15" TextWrapping="Wrap" Foreground="#34495E" FontSize="11">
+                        Select a target process and enable the spoof modules you want to use. Click "Start" to inject the hooks.
+                        The malware will see a spoofed environment while your system operates normally. Restart the target process
+                        to remove all hooks and restore normal behavior.
+                    </TextBlock>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Status Bar and Controls -->
+        <Grid Grid.Row="2" Background="#ECF0F1" Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="{Binding StatusMessage}" 
+                      VerticalAlignment="Center" Foreground="#2C3E50" FontSize="11"/>
+
+            <Button Grid.Column="1" Content="START" Click="StartButton_Click"
+                   Background="#27AE60" Foreground="White"
+                   Padding="20,12" FontWeight="Bold" FontSize="12"
+                   IsEnabled="{Binding IsRunning, Converter={StaticResource InverseBoolConverter}}"
+                   Margin="10,0,0,0"/>
+
+            <Button Grid.Column="2" Content="STOP" Click="StopButton_Click"
+                   Background="#E74C3C" Foreground="White"
+                   Padding="20,12" FontWeight="Bold" FontSize="12"
+                   IsEnabled="{Binding IsRunning}"
+                   Margin="10,0,0,0"/>
+        </Grid>
+    </Grid>
+</Window>
